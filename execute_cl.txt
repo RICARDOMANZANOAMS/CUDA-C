@@ -1,0 +1,13 @@
+
+I erased form the env variables spark and the run 
+
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+which cl
+it should appera C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\bin\Hostx64\x64\cl.exe
+ it is running in 64 architecture
+
+nvcc -arch=compute_86 -code=sm_86 hello.cu -o hello.exe
+it should appear tmpxft_00006a60_00000000-7_hello.cudafe1.cpp
+
+Then hello.exe
+And it is running
