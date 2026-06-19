@@ -88,8 +88,9 @@ Grid
 A **warp** is a group of **32 threads** within a block that execute instructions together on the GPU. The GPU schedules and executes threads at the warp level, not individually.
 
 For maximum performance, threads within a warp should follow the same execution path. If different threads in the same warp take different branches of an `if` statement, the warp experiences **branch divergence**, which can reduce performance.
-## GPU Memory Hierarchy
 
+## GPU Memory Hierarchy
+![GPU Execution Model](Images/memory.png)
 CUDA provides several types of memory, each with different sizes, lifetimes, and access speeds. Choosing the appropriate memory type is one of the most important factors in achieving high performance.
 
 ### Registers
