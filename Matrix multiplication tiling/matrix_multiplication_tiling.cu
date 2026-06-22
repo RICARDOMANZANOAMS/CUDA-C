@@ -5,7 +5,8 @@
 #define TILE 4
 
 __global__ void matmultile(float *A, float *B, float *C)
-{
+{   
+    //Shared memory defintion
     __shared__ float As[TILE][TILE];
     __shared__ float Bs[TILE][TILE];
 
@@ -15,7 +16,7 @@ __global__ void matmultile(float *A, float *B, float *C)
     float sum = 0.0f;
 
     for (int t = 0; t < N / TILE; t++)
-    {
+    {   //Copy numbers from global memory to shared memory in small tiles
         As[threadIdx.y][threadIdx.x] =
             A[row * N + t * TILE + threadIdx.x];
 
@@ -24,6 +25,7 @@ __global__ void matmultile(float *A, float *B, float *C)
 
         __syncthreads();
 
+        //Iterate through each tile multiplying tiles
         for (int k = 0; k < TILE; k++)
         {
             sum += As[threadIdx.y][k] * Bs[k][threadIdx.x];
